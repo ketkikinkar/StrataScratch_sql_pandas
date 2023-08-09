@@ -1,0 +1,102 @@
+/* 
+Finding Updated Records
+
+
+Interview Question Date: November 2020
+
+Microsoft
+Easy
+ID 10299
+259
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+We have a table with employees and their salaries, however, some of the records are old and contain outdated salary information. Find the current salary of each employee assuming that salaries increase each year. Output their id, first name, last name, department ID, and current salary. Order your list by employee ID in ascending order.
+
+Table: ms_employee_salary
+Hints
+Expected Output
+Hint #1
+To find the current salary of each employee, we need to select the id, first name, last name, department ID, and the maximum salary for each employee. We can achieve this by using the SELECT statement with the appropriate columns and the MAX() function to get the maximum salary.
+
+Hint #2
+Great job! Now let's add the GROUP BY clause to group the records by id, first name, last name, and department ID. This will ensure that we get the maximum salary for each employee. Don't forget to also include the ORDER BY clause to sort the results by employee ID in ascending order.
+
+SELECT id,
+       first_name,
+       last_name,
+       department_id,
+       max(salary)
+FROM ms_employee_salary
+GROUP BY id,
+         first_name,
+         last_name,
+         department_id
+ORDER BY id ASC
+Show Hint #3
+ms_employee_salary
+Preview
+id:
+int
+first_name:
+varchar
+last_name:
+varchar
+salary:
+int
+department_id:
+int
+MYSQL:
+Hint #1
+To find the current salary of each employee, we need to select the id, first name, last name, department ID, and the maximum salary for each employee. We can achieve this by using the SELECT statement with the appropriate columns and the MAX() function to get the maximum salary.
+
+Hint #2
+Great job! Now let's add the GROUP BY clause to group the records by id, first name, last name, and department ID. This will ensure that we get the maximum salary for each employee. Don't forget to also include the ORDER BY clause to sort the results by employee ID in ascending order.
+
+SELECT id,
+       first_name,
+       last_name,
+       department_id,
+       max(salary)
+FROM ms_employee_salary
+GROUP BY id,
+         first_name,
+         last_name,
+         department_id
+ORDER BY id ASC
+Hint #3
+Well done! You have completed the query. This will give you the desired output of the current salary for each employee, ordered by employee ID in ascending order. Make sure to run the query to see the results. Keep up the good work!
+
+Entire code:
+
+SELECT id,
+       first_name,
+       last_name,
+       department_id,
+       max(salary)
+FROM ms_employee_salary
+GROUP BY id,
+         first_name,
+         last_name,
+         department_id
+ORDER BY id ASC
+
+*/
+
+MYSQL:
+select id, first_name, last_name, department_id, max(salary)
+from ms_employee_salary
+group by id,first_name,last_name, department_id
+order by id asc;
+
+Pandas:
+import pandas as pd
+res = ms_employee_salary.groupby(['id','first_name','last_name','department_id'])['salary'].max()
+res = res.reset_index().sort_values('id')
+
+Pyspark:
+import pyspark
+import pyspark.sql.functions as F
+res = ms_employee_salary.groupby('id', 'first_name', 'last_name', 'department_id').agg(F.max('salary').alias('salary')).sort('id').toPandas()
