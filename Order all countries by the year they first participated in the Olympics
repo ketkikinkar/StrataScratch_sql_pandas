@@ -1,0 +1,122 @@
+/*
+Order all countries by the year they first participated in the Olympics
+
+ESPN
+Easy
+ID 10184
+38
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Order all countries by the year they first participated in the Olympics.
+
+Output the National Olympics Committee (NOC) name along with the desired year.
+
+Sort records by the year and the NOC in ascending order.
+
+Table: olympics_athletes_events
+Hints
+Expected Output
+Hint #1
+To order all countries by the year they first participated in the Olympics, we need to use the SELECT statement to retrieve the National Olympics Committee (NOC) name and the minimum year for each NOC. We can achieve this by grouping the records by NOC and using the MIN() function to find the earliest year. Finally, we need to sort the records by the first_time_year and the NOC in ascending order.
+
+Hint #2
+Keep going! Now let's write the first part of the solution. We will use the SELECT statement to retrieve the NOC and the minimum year for each NOC. To do this, we need to specify the columns we want to select (noc and MIN(year) AS first_time_year) and the table we are selecting from (olympics_athletes_events). Don't forget to use the GROUP BY clause to group the records by NOC.
+
+SELECT
+    noc,
+    MIN(year) AS first_time_year
+FROM olympics_athletes_events
+GROUP BY 
+    noc
+Hint #3
+Well done! Now let's complete the solution. We need to order the records by the first_time_year and the NOC in ascending order. To do this, we can use the ORDER BY clause and specify the columns we want to sort by (first_time_year and noc) in ascending order.
+
+SELECT
+    noc,
+    MIN(year) AS first_time_year
+FROM olympics_athletes_events
+GROUP BY 
+    noc
+ORDER BY 
+    first_time_year,
+    noc
+olympics_athletes_events
+Preview
+id	name	sex	age	height	weight	team	noc	games	year	season	city	sport	event	medal
+3520	Guillermo J. Amparan	M				Mexico	MEX	1924 Summer	1924	Summer	Paris	Athletics	Athletics Men's 800 metres	
+35394	Henry John Finchett	M				Great Britain	GBR	1924 Summer	1924	Summer	Paris	Gymnastics	Gymnastics Men's Rings	
+21918	Georg Frederik Ahrensborg Clausen	M	28			Denmark	DEN	1924 Summer	1924	Summer	Paris	Cycling	Cycling Men's Road Race Individual	
+110345	Marinus Cornelis Dick Sigmond	M	26			Netherlands	NED	1924 Summer	1924	Summer	Paris	Football	Football Men's Football	
+54193	Thodore Tho Jeitz	M	26			Luxembourg	LUX	1924 Summer	1924	Summer	Paris	Gymnastics	Gymnastics Men's Individual All-Around	
+23240	Charles Barney Cory	M	47	180		United States	USA	1904 Summer	1904	Summer	St. Louis	Golf	Golf Men's Individual	
+85019	Nicolaas Johannes Nederpeld	M	37			Netherlands	NED	1924 Summer	1924	Summer	Paris	Fencing	Fencing Men's Foil Individual	
+25934	Jan Johannes de Blcourt	M	47			Netherlands	NED	1908 Summer	1908	Summer	London	Shooting	Shooting Men's Free Pistol 50 yards	
+35191	John Charles Field-Richards	M	29			Gyrinus-1	GBR	1908 Summer	1908	Summer	London	Motorboating	Motorboating Mixed B-Class (Under 60 Feet)	Gold
+4073	Andreac	M				France	FRA	1900 Summer	1900	Summer	Paris	Fencing	Fencing Men's epee Individual	
+120786	Pierre Tolar	M				Luxembourg	LUX	1924 Summer	1924	Summer	Paris	Gymnastics	Gymnastics Men's Rings	
+33723	August Oliver Gus Fager (Fagerstrm-)	M	32	178	61	United States	USA	1924 Summer	1924	Summer	Paris	Athletics	Athletics Men's Cross-Country Team	Silver
+82480	Mosso	M				France	FRA	1900 Summer	1900	Summer	Paris	Fencing	Fencing Men's epee Individual	
+18257	Gustaf Vilhelm Carlberg	M	44			Sweden	SWE	1924 Summer	1924	Summer	Paris	Shooting	Shooting Men's Rapid-Fire Pistol 25 metres	Silver
+27874	Destin Destine	M				Haiti	HAI	1924 Summer	1924	Summer	Paris	Shooting	Shooting Men's Free Rifle 400 600 and 800 metres Team	Bronze
+5831	Sidney James Montford Sid Atkinson	M	23	186	76	South Africa	RSA	1924 Summer	1924	Summer	Paris	Athletics	Athletics Men's 110 metres Hurdles	Silver
+72917	Jaroslav Mach	M	37			Czechoslovakia	TCH	1924 Summer	1924	Summer	Paris	Shooting	Shooting Men's Free Rifle 400 600 and 800 metres Team	
+97418	Edmund John Pueschel	M	21			United States	USA	1904 Summer	1904	Summer	St. Louis	Gymnastics	Gymnastics Men's Individual All-Around Apparatus Work	
+
+id:
+int
+name:
+varchar
+sex:
+varchar
+age:
+float
+height:
+float
+weight:
+datetime
+team:
+varchar
+noc:
+varchar
+games:
+varchar
+year:
+int
+season:
+varchar
+city:
+varchar
+sport:
+varchar
+event:
+varchar
+medal:
+varchar
+*/
+
+MYSQL:
+select noc,min(year) as first_time_year
+from olympics_athletes_events
+group by noc
+order by first_time_year, noc;
+
+Pandas:
+import pandas as pd
+res = olympics_athletes_events.groupby(['noc'])['year'].min()
+res = res.to_frame('first_time_year').reset_index().sort_values(['first_time_year','noc'])
+
+PySpark:
+import pyspark
+import pyspark.sql.functions as F
+res = olympics_athletes_events.groupby('noc').agg(F.min('year').alias('first_time_year'))
+res = res.orderBy('first_time_year','noc').toPandas()
+
+R:
+library(dplyr)
+res <- olympics_athletes_events %>%
+            group_by(noc) %>%
+            summarize(first_time_year  = min(year)) %>%
+            arrange(first_time_year, noc)
