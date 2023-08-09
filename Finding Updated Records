@@ -100,3 +100,9 @@ Pyspark:
 import pyspark
 import pyspark.sql.functions as F
 res = ms_employee_salary.groupby('id', 'first_name', 'last_name', 'department_id').agg(F.max('salary').alias('salary')).sort('id').toPandas()
+
+R:
+library(dplyr)
+res <- ms_employee_salary %>%
+     group_by(id, first_name, last_name, department_id) %>%
+     summarise(max_salary = max(salary))
