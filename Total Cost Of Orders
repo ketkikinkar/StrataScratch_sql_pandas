@@ -1,0 +1,94 @@
+"""
+Total Cost Of Orders
+Interview Question Date: July 2020
+Amazon
+Etsy
+Easy
+ID 10183
+76
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Find the total cost of each customer's orders. Output customer's id, first name, and the total order cost. Order records by customer's first name alphabetically.
+
+Tables: customers, orders
+Hints
+Expected Output
+Hint #1
+To find the total cost of each customer's orders, we need to join the "orders" and "customers" tables and group the results by the customer's id and first name. We also need to calculate the sum of the total order cost for each customer. Finally, we need to order the records by the customer's first name alphabetically.
+
+Hint #2
+Keep going! Now let's write the SQL query to join the tables, group the results, and calculate the sum of the total order cost. Here's the code snippet for the first part:
+
+SELECT customers.id,
+       customers.first_name,
+       SUM(total_order_cost)
+FROM orders
+JOIN customers ON customers.id = orders.cust_id
+GROUP BY customers.id,
+         customers.first_name
+Hint #3
+Well done! Now let's complete the solution by adding the ORDER BY clause to sort the records by the customer's first name alphabetically. Here's the entire code snippet:
+
+SELECT customers.id,
+       customers.first_name,
+       SUM(total_order_cost)
+FROM orders
+JOIN customers ON customers.id = orders.cust_id
+GROUP BY customers.id,
+         customers.first_name
+ORDER BY customers.first_name ASC;
+customers
+Preview
+id:
+int
+first_name:
+varchar
+last_name:
+varchar
+city:
+varchar
+address:
+varchar
+phone_number:
+varchar
+orders
+Preview
+id:
+int
+cust_id:
+int
+order_date:
+datetime
+order_details:
+varchar
+total_order_cost:
+int
+"""
+#SOLTUION:
+
+MySQL:
+SELECT customers.id, customers.first_name, SUM(total_order_cost)
+FROM orders JOIN customers ON customers.id = orders.cust_id
+GROUP BY customers.id, customers.first_name
+ORDER BY customers.first_name ASC;
+
+Pandas:
+import pandas as pd
+import numpy as np
+merge = pd.merge(customers,orders,left_on="id",right_on="cust_id")
+merge = (
+        merge.groupby(["cust_id","first_name"])["total_order_cost"]
+        .sum()
+        .reset_index()
+        )
+result = merge.sort_values(by="first_name",ascending=True)
+
+PySpark:
+import pyspark.sql.functions as F
+merge = customers.join(orders,customers.id==orders.cust_id)
+merge = merge.groupby("cust_id","first_name").agg(F.sum("total_order_cost").alias("total_order_cost"))
+result =  merge.orderBy("first_name",ascending=True)
+result.toPandas()
