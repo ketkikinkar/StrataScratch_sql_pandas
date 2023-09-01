@@ -1,0 +1,59 @@
+"""
+Employees Who Joined in February 2014
+
+Amazon
+Easy
+ID 9844
+11
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Find all workers who joined on February 2014.
+
+Table: worker
+Hints
+Expected Output
+Hint #1
+To find all workers who joined on February 2014, we need to filter the worker table based on the joining_date column. We can do this by extracting the year and month from the joining_date and comparing them to the desired values.
+
+Hint #2
+Keep going! Now let's write the SQL query to filter the worker table based on the joining_date. We can use the YEAR() and MONTH() functions to extract the year and month from the joining_date column, and then compare them to the desired values using the = operator.
+
+SELECT *
+FROM worker
+WHERE YEAR(joining_date) = 2014
+  AND MONTH(joining_date) = 2
+Hint #3
+Well done! You have successfully written the SQL query to find all workers who joined on February 2014. This query will select all columns from the worker table where the year of the joining_date is 2014 and the month is 2. Now you can execute this query to get the desired results.
+
+worker
+Preview
+worker_id:
+int
+first_name:
+varchar
+last_name:
+varchar
+salary:
+int
+joining_date:
+datetime
+department:
+varchar
+"""
+
+# SOLTUION:
+
+MySQL:
+select * 
+from worker
+where year(joining_date)= 2014
+      and month(joining_date)= 2;
+
+Pandas:
+import pandas as pd
+df = worker
+result = df[((df['joining_date'].dt.month ==2)&(df['joining_date'].dt.year==2014))]
+result
