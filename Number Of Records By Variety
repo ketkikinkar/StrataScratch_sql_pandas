@@ -1,0 +1,60 @@
+"""
+Number Of Records By Variety
+
+Microsoft
+Linux
+Easy
+ID 10168
+21
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Find the total number of records that belong to each variety in the dataset. Output the variety along with the corresponding number of records. Order records by the variety in ascending order.
+
+Table: iris
+Hints
+Expected Output
+Hint #1
+To find the total number of records that belong to each variety in the dataset, we need to use the SELECT statement along with the COUNT function. We also need to group the records by the variety column and order them by variety in ascending order.
+
+Hint #2
+Keep going! Now let's write the first part of the solution. We will use the SELECT statement to select the variety column and the COUNT function to count the number of records for each variety. We will also give the count column an alias of "n_total_varieties".
+
+SELECT variety,
+       count(variety) as n_total_varieties
+Hint #3
+Well done! Now let's complete the solution. We need to specify the table we are selecting from, which is "iris". We also need to group the records by the variety column using the GROUP BY clause. Finally, we will order the records by variety in ascending order using the ORDER BY clause.
+
+SELECT variety,
+       count(variety) as n_total_varieties
+FROM iris
+GROUP BY variety
+ORDER BY variety
+iris
+Preview
+sepal_length:
+float
+sepal_width:
+float
+petal_length:
+float
+petal_width:
+float
+variety:
+varchar
+"""
+
+# SOLUTION:
+
+MySQL:
+select variety, count(variety) as n_total_varieties 
+from iris
+group by variety
+order by variety;
+
+Pandas:
+import pandas as pd
+result = (iris.groupby(["variety"])["sepal_length"].count().reset_index())
+result = result.sort_values(by="variety")
