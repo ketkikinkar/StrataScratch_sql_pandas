@@ -1,0 +1,95 @@
+"""
+Cheapest Properties
+
+Interview Question Date: January 2018
+
+Airbnb
+Easy
+ID 9625
+22
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Find the price of the cheapest property for every city.
+
+Table: airbnb_search_details
+Hints
+Expected Output
+Hint #1
+To find the price of the cheapest property for every city, we need to use the SELECT statement to select the city and the minimum price for each city. We can achieve this by using the MIN function and grouping the results by city.
+
+Hint #2
+Great job! Now, let's write the first part of the solution. We will use the SELECT statement to select the city and the minimum price for each city from the airbnb_search_details table. We will also use the AS keyword to rename the minimum price column as min_price. Here's the code snippet:
+
+SELECT 
+   city,
+   min(price) AS min_price
+FROM airbnb_search_details
+Hint #3
+Well done! We're almost there. Now, we need to group the results by city using the GROUP BY statement. This will ensure that we get the minimum price for each city. Here's the entire code snippet:
+
+SELECT 
+   city,
+   min(price) AS min_price
+FROM airbnb_search_details
+GROUP BY 
+    city
+airbnb_search_details
+Preview
+Unnamed: 0:
+int
+id:
+int
+price:
+float
+property_type:
+varchar
+room_type:
+varchar
+amenities:
+varchar
+accommodates:
+int
+bathrooms:
+int
+bed_type:
+varchar
+cancellation_policy:
+varchar
+cleaning_fee:
+bool
+city:
+varchar
+host_identity_verified:
+varchar
+host_response_rate:
+varchar
+host_since:
+datetime
+neighbourhood:
+varchar
+number_of_reviews:
+int
+review_scores_rating:
+float
+zipcode:
+int
+bedrooms:
+int
+beds:
+int
+"""
+
+# SOLUTION:
+
+MySQL:
+select city, min(price) as cheapest_city
+from airbnb_search_details
+group by city;
+
+Pandas:
+import pandas as pd
+df = airbnb_search_details
+result = df.groupby("city")['price'].min().to_frame().reset_index()
