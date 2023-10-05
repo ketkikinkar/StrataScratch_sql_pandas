@@ -1,0 +1,250 @@
+/*
+Guest Or Host Kindness
+Interview Question Date: April 2020
+
+Airbnb
+Easy
+ID 10072
+18
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find whether hosts or guests give higher review scores based on their average review scores. Output the higher of the average review score rounded to the 2nd decimal spot (e.g., 5.11).
+
+Table: airbnb_reviews
+Hints
+Expected Output
+Hint #1
+To find whether hosts or guests give higher review scores based on their average review scores, we need to calculate the average review score for each group and compare them.
+
+Hint #2
+To calculate the average review score for each group, we can use the SELECT statement with the AVG() function. We also need to group the results by the "from_type" column.
+
+Here is the code snippet for calculating the average review score for each group:
+
+SELECT from_type, ROUND(AVG(review_score), 2) AS avg_score
+FROM airbnb_reviews
+GROUP BY from_type
+Hint #3
+To determine which group has the higher average review score, we can use the ORDER BY clause to sort the results in descending order based on the average score. Then, we can use the LIMIT 1 clause to only retrieve the highest average score.
+
+Here is the complete code snippet:
+
+SELECT from_type, ROUND(AVG(review_score), 2) AS winner
+FROM airbnb_reviews
+GROUP BY from_type
+ORDER BY winner DESC
+LIMIT 1
+airbnb_reviews
+Preview
+from_user	to_user	from_type	to_type	review_score
+4	2	guest	host	3
+1	2	host	guest	5
+8	2	guest	host	3
+6	1	host	guest	1
+1	6	guest	host	4
+7	10	guest	host	10
+3	10	host	guest	0
+1	9	guest	host	6
+4	8	guest	host	0
+5	2	host	guest	4
+10	0	host	guest	1
+4	0	guest	host	7
+1	5	host	guest	3
+5	0	guest	host	3
+0	3	guest	host	7
+5	3	guest	host	9
+6	5	host	guest	4
+6	11	guest	host	4
+7	8	guest	host	7
+6	5	guest	host	0
+8	9	guest	host	10
+4	1	host	guest	1
+10	4	host	guest	8
+11	6	guest	host	7
+4	2	guest	host	3
+11	9	guest	host	4
+11	5	guest	host	5
+4	5	guest	host	5
+6	3	host	guest	2
+7	5	host	guest	9
+6	3	guest	host	9
+4	8	host	guest	5
+2	1	host	guest	7
+6	4	guest	host	6
+6	0	guest	host	2
+10	4	guest	host	3
+7	1	guest	host	10
+1	10	guest	host	10
+9	10	guest	host	3
+8	6	guest	host	2
+2	9	guest	host	2
+8	8	guest	host	7
+4	8	host	guest	4
+4	10	host	guest	3
+5	11	guest	host	7
+1	11	guest	host	9
+2	2	guest	host	3
+1	4	guest	host	9
+2	9	guest	host	1
+8	11	host	guest	1
+3	9	guest	host	2
+7	0	guest	host	8
+0	9	host	guest	8
+2	3	host	guest	2
+0	5	host	guest	3
+8	8	host	guest	10
+7	2	host	guest	0
+0	4	host	guest	3
+0	3	guest	host	7
+3	8	host	guest	1
+1	2	host	guest	2
+9	6	guest	host	6
+5	2	guest	host	7
+10	0	guest	host	10
+10	10	host	guest	3
+6	3	host	guest	6
+2	9	host	guest	0
+5	1	guest	host	5
+6	5	host	guest	3
+4	11	host	guest	10
+1	6	guest	host	6
+11	6	guest	host	1
+10	5	host	guest	2
+11	3	host	guest	2
+11	2	host	guest	2
+9	11	guest	host	8
+6	4	guest	host	5
+9	9	guest	host	8
+6	9	guest	host	5
+6	7	guest	host	8
+1	8	guest	host	4
+9	10	host	guest	6
+10	0	host	guest	7
+11	4	host	guest	9
+10	10	guest	host	7
+1	5	guest	host	8
+8	1	host	guest	7
+9	8	host	guest	8
+11	8	guest	host	7
+6	10	host	guest	7
+7	8	host	guest	2
+10	2	guest	host	0
+2	5	guest	host	2
+0	6	guest	host	10
+5	9	guest	host	3
+3	3	host	guest	3
+7	1	guest	host	0
+9	11	host	guest	4
+3	4	guest	host	1
+11	3	guest	host	10
+8	2	guest	host	6
+3	6	guest	host	1
+5	7	guest	host	0
+2	7	guest	host	0
+7	3	host	guest	5
+10	1	guest	host	6
+8	3	guest	host	7
+3	7	guest	host	2
+9	8	host	guest	2
+4	10	guest	host	10
+0	7	guest	host	4
+1	8	host	guest	10
+7	4	host	guest	8
+0	2	guest	host	8
+11	2	guest	host	1
+8	3	host	guest	8
+2	2	guest	host	8
+4	3	guest	host	1
+0	3	guest	host	4
+9	6	guest	host	8
+0	10	host	guest	8
+3	4	host	guest	10
+5	9	guest	host	7
+0	11	guest	host	3
+7	2	guest	host	1
+10	2	host	guest	10
+11	4	guest	host	10
+10	0	guest	host	0
+5	0	guest	host	5
+8	6	guest	host	3
+1	0	host	guest	0
+7	4	guest	host	8
+9	8	host	guest	4
+1	9	host	guest	6
+5	1	host	guest	9
+6	10	guest	host	2
+11	11	host	guest	7
+0	6	host	guest	0
+6	7	guest	host	7
+1	6	host	guest	5
+9	3	guest	host	8
+4	5	guest	host	6
+4	8	host	guest	4
+1	0	host	guest	0
+8	11	guest	host	0
+8	3	host	guest	6
+3	3	host	guest	5
+8	7	guest	host	7
+7	11	host	guest	8
+9	9	guest	host	8
+8	9	host	guest	6
+6	1	host	guest	1
+5	4	guest	host	8
+9	9	host	guest	0
+10	0	host	guest	7
+11	1	host	guest	4
+3	6	guest	host	8
+5	4	host	guest	7
+2	6	guest	host	0
+4	3	guest	host	7
+4	11	guest	host	2
+6	2	host	guest	6
+2	2	host	guest	1
+5	11	host	guest	2
+9	9	host	guest	9
+8	2	guest	host	10
+3	9	host	guest	6
+11	11	host	guest	1
+6	9	guest	host	6
+7	2	guest	host	8
+8	7	guest	host	0
+3	10	host	guest	10
+6	4	host	guest	9
+5	6	host	guest	3
+7	3	host	guest	7
+8	1	guest	host	6
+3	6	host	guest	6
+5	2	host	guest	5
+5	3	host	guest	1
+10	1	host	guest	0
+3	8	host	guest	10
+11	5	guest	host	5
+3	0	host	guest	0
+11	9	host	guest	8
+5	3	guest	host	9
+4	7	guest	host	4
+4	10	guest	host	6
+3	4	host	guest	6
+4	2	guest	host	5
+from_user:
+int
+to_user:
+int
+from_type:
+varchar
+to_type:
+varchar
+review_score:
+int
+
+*/
+-- SOLTUION:
+select from_type,round(avg(review_Score),2) as winner
+from airbnb_reviews
+group by from_type
+order by winner desc
+limit 1;
