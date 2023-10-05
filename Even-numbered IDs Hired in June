@@ -1,0 +1,71 @@
+"""
+Even-numbered IDs Hired in June
+
+Amazon
+Bosch
+Easy
+ID 10137
+20
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find employees who started in June and have even-numbered employee IDs.
+
+Table: worker
+Hints
+Expected Output
+Hint #1
+To solve this problem, we need to find employees who started in June and have even-numbered employee IDs.
+
+Hint #2
+Keep going! To find employees who started in June, we can use the MONTH() function in SQL. Combine this with the condition for even-numbered employee IDs using the modulus operator (%).
+
+Corresponding code blocks:
+
+SELECT *
+FROM worker
+WHERE MONTH(joining_date) = 6
+Hint #3
+Well done! Now, to complete the solution, we need to add the condition for even-numbered employee IDs. We can do this by adding another condition using the modulus operator (%).
+
+Entire code:
+
+SELECT *
+FROM worker
+WHERE worker_id % 2 = 0
+  AND MONTH(joining_date) = 6
+worker
+Preview
+worker_id	first_name	last_name	salary	joining_date	department
+1	Monika	Arora	100000	2014-02-20	HR
+2	Niharika	Verma	80000	2014-06-11	Admin
+3	Vishal	Singhal	300000	2014-02-20	HR
+4	Amitah	Singh	500000	2014-02-20	Admin
+5	Vivek	Bhati	500000	2014-06-11	Admin
+6	Vipul	Diwan	200000	2014-06-11	Account
+7	Satish	Kumar	75000	2014-01-20	Account
+8	Geetika	Chauhan	90000	2014-04-11	Admin
+9	Agepi	Argon	90000	2015-04-10	Admin
+10	Moe	Acharya	65000	2015-04-11	HR
+11	Nayah	Laghari	75000	2014-03-20	Account
+12	Jai	Patel	85000	2014-03-21	HR
+worker_id:
+int
+first_name:
+varchar
+last_name:
+varchar
+salary:
+int
+joining_date:
+datetime
+department:
+varchar
+"""
+# SOLUTION:
+select * 
+from worker
+WHERE MONTH(joining_date) = 6 and worker_id %2 =0;
