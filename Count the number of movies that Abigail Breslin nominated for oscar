@@ -1,0 +1,51 @@
+"""
+Count the number of movies that Abigail Breslin nominated for oscar
+
+Google
+Netflix
+Easy
+ID 10128
+84
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Count the number of movies that Abigail Breslin was nominated for an oscar.
+
+Table: oscar_nominees
+Hints
+Expected Output
+Hint #1
+To count the number of movies that Abigail Breslin was nominated for an Oscar, we need to use the SELECT statement along with the count() function and the distinct keyword. We also need to specify the table name and the column name in the FROM and WHERE clauses respectively.
+
+Hint #2
+Keep going! Now let's write the code for the first part of the solution. Use the SELECT statement to select the count of distinct movies, and alias it as "n_movies_by_abi". Then, specify the table name "oscar_nominees" in the FROM clause.
+
+SELECT count(distinct movie) AS n_movies_by_abi
+FROM oscar_nominees
+Hint #3
+Well done! Now let's complete the solution by adding the WHERE clause to filter the results for Abigail Breslin. Use the WHERE clause to specify the condition "nominee = 'Abigail Breslin'".
+
+SELECT count(distinct movie) AS n_movies_by_abi
+FROM oscar_nominees
+WHERE nominee = 'Abigail Breslin'
+oscar_nominees
+Preview
+year:
+int
+category:
+varchar
+nominee:
+varchar
+movie:
+varchar
+winner:
+bool
+id:
+int
+"""
+# SOLTUION:
+select count(movie) 
+from oscar_nominees
+where nominee = 'Abigail Breslin';
