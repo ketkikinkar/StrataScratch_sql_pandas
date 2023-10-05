@@ -1,0 +1,47 @@
+/*
+Find all posts which were reacted to with a heart
+
+
+Meta/Facebook
+Easy
+ID 10087
+134
+
+Data Engineer
+BI Analyst
+Data Analyst
+Find all posts which were reacted to with a heart. For such posts output all columns from facebook_posts table.
+
+Tables: facebook_reactions, facebook_posts
+Hints
+Expected Output
+facebook_reactions
+Preview
+poster:
+int
+friend:
+int
+reaction:
+varchar
+date_day:
+int
+post_id:
+int
+facebook_posts
+Preview
+post_id:
+int
+poster:
+int
+post_text:
+varchar
+post_keywords:
+varchar
+post_date:
+datetime
+*/
+
+-- SOLTUION:
+select distinct p.* 
+from facebook_reactions r inner join facebook_posts p
+on p.post_id = r.post_id and r.reaction = 'heart';
