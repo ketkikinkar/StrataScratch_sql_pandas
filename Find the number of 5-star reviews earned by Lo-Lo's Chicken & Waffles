@@ -1,0 +1,56 @@
+/*
+Find the number of 5-star reviews earned by Lo-Lo's Chicken & Waffles
+Yelp
+Easy
+ID 10057
+12
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find the number of 5-star reviews earned by Lo-Lo's Chicken & Waffles.
+
+Table: yelp_reviews
+Hints
+Expected Output
+Hint #1
+To find the number of 5-star reviews earned by Lo-Lo's Chicken & Waffles, we need to use the SELECT statement along with the COUNT function. We also need to specify the table name and the conditions for the business name and stars.
+
+Hint #2
+Keep going! Now let's write the SQL query to retrieve the count of 5-star reviews for Lo-Lo's Chicken & Waffles. Use the SELECT statement with the COUNT function, and specify the table name as "yelp_reviews". Add the conditions for the business name using the LIKE operator and the stars using the equals (=) operator.
+
+SELECT 
+    COUNT(*) AS n_5star_reviews
+FROM yelp_reviews
+WHERE 
+    business_name LIKE 'Lo-Lo_s Chicken & Waffles' AND 
+    stars = 5
+Hint #3
+Well done! You're making progress! Now you have the complete SQL query to find the number of 5-star reviews earned by Lo-Lo's Chicken & Waffles. Simply execute the query to get the desired result.
+
+yelp_reviews
+Preview
+business_name:
+varchar
+review_id:
+varchar
+user_id:
+varchar
+stars:
+varchar
+review_date:
+datetime
+review_text:
+varchar
+funny:
+int
+useful:
+int
+cool:
+int
+*/
+-- SOLTUION:
+select COUNT(*) from yelp_reviews
+WHERE business_name = 'Lo-Lo\'s Chicken & Waffles' and stars = 5;
