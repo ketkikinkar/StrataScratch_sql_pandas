@@ -1,0 +1,34 @@
+Total Number Of Housing Units
+
+Airbnb
+Zillow
+Easy
+ID 10167
+29
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Find the total number of housing units completed for each year. Output the year along with the total number of housings. Order the result by year in ascending order.
+
+
+Note: Number of housing units in thousands.
+
+Table: housing_units_completed_us
+Hints
+Expected Output
+housing_units_completed_us
+Preview
+year:
+int
+month:
+int
+south:
+float
+west:
+float
+midwest:
+float
+northeast:
+float
