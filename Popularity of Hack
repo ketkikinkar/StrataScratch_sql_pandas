@@ -1,0 +1,70 @@
+/*
+Popularity of Hack
+Interview Question Date: March 2020
+
+Meta/Facebook
+Easy
+ID 10061
+149
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Meta/Facebook has developed a new programing language called Hack.To measure the popularity of Hack they ran a survey with their employees. The survey included data on previous programing familiarity as well as the number of years of experience, age, gender and most importantly satisfaction with Hack. Due to an error location data was not collected, but your supervisor demands a report showing average popularity of Hack by office location. Luckily the user IDs of employees completing the surveys were stored.
+Based on the above, find the average popularity of the Hack per office location.
+Output the location along with the average popularity.
+
+Tables: facebook_employees, facebook_hack_survey
+Hints
+Expected Output
+Hint #1
+To find the average popularity of Hack per office location, we need to join the "facebook_employees" table with the "facebook_hack_survey" table on the "id" and "employee_id" columns respectively. Then, we can group the data by the "location" column and calculate the average popularity using the AVG() function.
+
+Hint #2
+Keep going! Now let's write the SQL query to join the tables and calculate the average popularity.
+
+SELECT e.location,
+       AVG(s.popularity) AS avg_popularity
+FROM facebook_employees e
+JOIN facebook_hack_survey s ON e.id = s.employee_id
+GROUP BY e.location
+This query selects the "location" column from the "facebook_employees" table and calculates the average popularity from the "facebook_hack_survey" table. The JOIN condition ensures that only matching records are included in the result. Finally, the GROUP BY clause groups the data by the "location" column.
+
+Hint #3
+Well done! Here is the complete code:
+
+SELECT e.location,
+       AVG(s.popularity) AS avg_popularity
+FROM facebook_employees e
+JOIN facebook_hack_survey s ON e.id = s.employee_id
+GROUP BY e.location
+This code will output the location along with the average popularity of Hack for each office location.
+
+facebook_employees
+Preview
+id:
+int
+location:
+varchar
+age:
+int
+gender:
+varchar
+is_senior:
+bool
+facebook_hack_survey
+Preview
+employee_id:
+int
+age:
+int
+gender:
+varchar
+popularity:
+int
+*/
+-- SOLUTION:
+select e.location, avg(h.popularity) from facebook_employees e 
+inner join facebook_hack_survey h on h.employee_id = e.id
+group by e.location;
