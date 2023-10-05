@@ -1,0 +1,82 @@
+/*
+Find the number of reviews received by Lo-Lo's Chicken & Waffles for each star
+Yelp
+Easy
+ID 10058
+17
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find the number of reviews received by Lo-Lo's Chicken & Waffles for each star.
+Output the number of stars along with the corresponding number of reviews.
+Sort records by stars in ascending order.
+
+Table: yelp_reviews
+Hints
+Expected Output
+Hint #1
+To find the number of reviews received by Lo-Lo's Chicken & Waffles for each star, we need to use the SELECT statement along with the COUNT() function to count the number of reviews. We also need to use the GROUP BY clause to group the reviews by stars and the ORDER BY clause to sort the records by stars in ascending order.
+
+Hint #2
+Keep going! Now let's write the first part of the solution. We need to use the SELECT statement to select the columns "stars" and "COUNT(*) AS n_reviews" from the table "yelp_reviews". We also need to use the WHERE clause to filter the reviews for the business name "Lo-Lo's Chicken & Waffles". Don't forget to enclose the business name in single quotes and escape the apostrophe with a backslash.
+
+SELECT 
+    stars, 
+    COUNT(*) AS n_reviews
+FROM yelp_reviews
+WHERE 
+    business_name LIKE 'Lo-Lo\'s Chicken & Waffles'
+Hint #3
+Well done! Now let's complete the solution. We need to add the GROUP BY clause to group the reviews by stars and the ORDER BY clause to sort the records by stars in ascending order.
+
+SELECT 
+    stars, 
+    COUNT(*) AS n_reviews
+FROM yelp_reviews
+WHERE 
+    business_name LIKE 'Lo-Lo\'s Chicken & Waffles'
+GROUP BY 
+    stars
+ORDER BY
+    stars;
+Entire code:
+
+SELECT 
+    stars, 
+    COUNT(*) AS n_reviews
+FROM yelp_reviews
+WHERE 
+    business_name LIKE 'Lo-Lo\'s Chicken & Waffles'
+GROUP BY 
+    stars
+ORDER BY
+    stars;
+yelp_reviews
+Preview
+business_name:
+varchar
+review_id:
+varchar
+user_id:
+varchar
+stars:
+varchar
+review_date:
+datetime
+review_text:
+varchar
+funny:
+int
+useful:
+int
+cool:
+int
+*/
+-- SOLTUION:
+select stars, count(*) as rn from yelp_reviews
+where business_name LIKE 'Lo-Lo\'s Chicken & Waffles'
+group by stars
+order by stars;
