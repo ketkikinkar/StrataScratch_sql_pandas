@@ -1,0 +1,58 @@
+"""
+Odd-numbered ID's Hired in February
+
+Amazon
+Bosch
+Easy
+ID 10136
+17
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find employees who started in February and have odd-numbered employee IDs.
+
+Table: worker
+Hints
+Expected Output
+Hint #1
+To find employees who started in February and have odd-numbered employee IDs, we need to use the SELECT statement with the WHERE clause. The WHERE clause should include two conditions: one for the joining date in February and another for the odd-numbered employee IDs.
+
+Hint #2
+Keep going! Now let's break down the conditions in the WHERE clause. For the first condition, we can use the MONTH() function to extract the month from the joining_date column and compare it to 2. For the second condition, we can use the modulo operator (%) to check if the worker_id is odd (not divisible by 2).
+
+Here's the corresponding code:
+
+SELECT *
+FROM worker
+WHERE MONTH(joining_date) = 2
+  AND worker_id % 2 <> 0;
+Hint #3
+Well done! You're making progress! Now you have the complete code to find employees who started in February and have odd-numbered employee IDs. This code will select all columns from the worker table where the joining_date is in February and the worker_id is odd.
+
+Here's the entire code:
+
+SELECT *
+FROM worker
+WHERE MONTH(joining_date) = 2
+  AND worker_id % 2 <> 0;
+worker
+Preview
+worker_id:
+int
+first_name:
+varchar
+last_name:
+varchar
+salary:
+int
+joining_date:
+datetime
+department:
+varchar
+"""
+# SOLTUION:
+select * from worker
+where month(joining_date)=2 and worker_id%2 <> 0;
