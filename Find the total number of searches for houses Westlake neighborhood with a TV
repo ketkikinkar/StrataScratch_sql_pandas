@@ -1,0 +1,68 @@
+/*
+Find the total number of searches for houses Westlake neighborhood with a TV
+
+Airbnb
+Easy
+ID 10122
+18
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find the total number of searches for houses in Westlake neighborhood with a TV among the amenities.
+
+Table: airbnb_search_details
+Hints
+Expected Output
+airbnb_search_details
+Preview
+Unnamed: 0:
+int
+id:
+int
+price:
+float
+property_type:
+varchar
+room_type:
+varchar
+amenities:
+varchar
+accommodates:
+int
+bathrooms:
+int
+bed_type:
+varchar
+cancellation_policy:
+varchar
+cleaning_fee:
+bool
+city:
+varchar
+host_identity_verified:
+varchar
+host_response_rate:
+varchar
+host_since:
+datetime
+neighbourhood:
+varchar
+number_of_reviews:
+int
+review_scores_rating:
+float
+zipcode:
+int
+bedrooms:
+int
+beds:
+int
+*/
+
+-- SOLTUION:
+select COUNT(*) 
+from airbnb_search_details
+WHERE neighbourhood = 'Westlake' and amenities like '%TV%';
