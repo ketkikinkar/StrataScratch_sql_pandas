@@ -1,0 +1,63 @@
+"""
+Find the number of Yelp businesses that sell pizza
+
+Yelp
+Easy
+ID 10153
+22
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find the number of Yelp businesses that sell pizza.
+
+Table: yelp_business
+Hints
+Expected Output
+Hint #1
+To find the number of Yelp businesses that sell pizza, we need to use the SELECT statement along with the count() function. We also need to specify the table we are querying, which is "yelp_business".
+
+Hint #2
+Keep going! Now that we know the table we are querying, we need to specify the condition for the query. In this case, we want to find businesses that have "Pizza" in their categories. We can use the WHERE clause along with the LIKE operator and the % wildcard to match any string that contains "Pizza".
+
+SELECT count(*)
+FROM yelp_business
+WHERE categories LIKE '%Pizza%'
+Hint #3
+Well done! You have completed the query. This code will return the number of Yelp businesses that sell pizza. Make sure to run the code to see the result.
+
+yelp_business
+Preview
+business_id:
+varchar
+name:
+varchar
+neighborhood:
+varchar
+address:
+varchar
+city:
+varchar
+state:
+varchar
+postal_code:
+varchar
+latitude:
+float
+longitude:
+float
+stars:
+float
+review_count:
+int
+is_open:
+int
+categories:
+varchar"""
+
+# SOLTUION:
+select count(*) 
+from yelp_business
+where categories like '%Pizza%';
