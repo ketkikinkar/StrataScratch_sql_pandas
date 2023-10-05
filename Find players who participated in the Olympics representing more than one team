@@ -1,0 +1,76 @@
+"""
+Find players who participated in the Olympics representing more than one team
+
+ESPN
+Easy
+ID 10143
+14
+
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find players who participated in the Olympics representing more than one team.
+Output the player name, team, games, sport, and the medal.
+
+Table: olympics_athletes_events
+Hints
+Expected Output
+Hint #1
+To solve this problem, we need to find players who participated in the Olympics representing more than one team. We want to output the player name, team, games, sport, and the medal.
+
+Hint #2
+To start, we can use the SELECT statement to specify the columns we want to retrieve: name, team, games, sport, and medal. We can do this by writing "SELECT name, team, games, sport, medal" at the beginning of our query. Keep going!
+
+Hint #3
+Next, we need to specify the condition for our WHERE clause. We want to find players who represented more than one team, so we can use the LIKE operator with the '%/%' pattern. This pattern will match any value that contains a forward slash, indicating multiple teams. We can add the condition "team LIKE '%/%'" after the WHERE keyword. Well done!
+
+Entire code:
+
+SELECT name, team, games, sport, medal FROM olympics_athletes_events WHERE team LIKE '%/%';
+
+olympics_athletes_events
+Preview
+124162	Greg Van Avermaet	M	31	181	74	Belgium	BEL	2016 Summer	2016	Summer	Rio de Janeiro	Cycling	Cycling Men's Road Race Individual	Gold
+124031	Jean-Charles Valladont	M	27	180	83	France	FRA	2016 Summer	2016	Summer	Rio de Janeiro	Archery	Archery Men's Individual	Silver
+122321	Irakli Tsirekidze	M	26	184	90	Georgia	GEO	2008 Summer	2008	Summer	Beijing	Judo	Judo Men's Middleweight	Gold
+30576	Alina Alexandra Dumitru (-Croitoru)	F	25	158	48	Romania	ROU	2008 Summer	2008	Summer	Beijing	Judo	Judo Women's Extra-Lightweight	Gold
+70384	Soso Lip'art'eliani	M	25	178	78	Georgia	GEO	1996 Summer	1996	Summer	Atlanta	Judo	Judo Men's Half-Middleweight	Bronze
+87208	Michel Nowak	M	22	175	77	France	FRA	1984 Summer	1984	Summer	Los Angeles	Judo	Judo Men's Half-Middleweight	Bronze
+123132	Masae Ueno	F	25	160	70	Japan	JPN	2004 Summer	2004	Summer	Athina	Judo	Judo Women's Middleweight	Gold
+id:
+int
+name:
+varchar
+sex:
+varchar
+age:
+float
+height:
+float
+weight:
+datetime
+team:
+varchar
+noc:
+varchar
+games:
+varchar
+year:
+int
+season:
+varchar
+city:
+varchar
+sport:
+varchar
+event:
+varchar
+medal:
+varchar
+"""
+# SOLTUIONS:
+select 
+name,team,games,sport,medal
+from olympics_athletes_events
+where team like '%/%';
