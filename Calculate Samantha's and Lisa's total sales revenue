@@ -1,0 +1,52 @@
+"""
+Calculate Samantha's and Lisa's total sales revenue
+
+Amazon
+Groupon
+Salesforce
+Easy
+ID 10127
+18
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+What is the total sales revenue of Samantha and Lisa?
+
+Table: sales_performance
+Hints
+Expected Output
+Hint #1
+To find the total sales revenue of Samantha and Lisa, we need to use the SELECT statement with the sum() function to calculate the sum of the sales_revenue column. We also need to specify the table name (sales_performance) and the condition in the WHERE clause to filter the salesperson column for Samantha and Lisa.
+
+Hint #2
+Keep going! Now let's write the code for the first part of the solution. Use the SELECT statement with the sum() function to calculate the total revenue. Specify the column name as sales_revenue and give it an alias as total_revenue. Then, specify the table name as sales_performance.
+
+Hint #3
+Well done! Now let's complete the solution by adding the condition in the WHERE clause to filter the salesperson column for Samantha and Lisa. Use the OR operator to specify two conditions: salesperson = 'Samantha' OR salesperson = 'Lisa'. This will give us the total sales revenue of Samantha and Lisa.
+
+SELECT 
+    sum(sales_revenue) AS total_revenue 
+FROM 
+    sales_performance 
+WHERE 
+    salesperson = 'Samantha' OR 
+    salesperson = 'Lisa';
+sales_performance
+Preview
+salesperson:
+varchar
+widget_sales:
+int
+sales_revenue:
+int
+id:
+int
+"""
+
+# SOLTUION:
+
+select sum(sales_revenue) as sr
+from sales_performance 
+where salesperson = 'Samantha' or salesperson = 'Lisa';
