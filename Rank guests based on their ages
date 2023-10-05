@@ -1,0 +1,59 @@
+"""
+Rank guests based on their ages
+
+Airbnb
+Easy
+ID 10160
+15
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Rank guests based on their ages.
+Output the guest id along with the corresponding rank.
+Order records by the age in descending order.
+
+Table: airbnb_guests
+Hints
+Expected Output
+Hint #1
+The problem is asking to rank the guests based on their ages in descending order. The output should include the guest id and the corresponding rank. This can be achieved using the RANK() function in SQL which assigns a unique rank to each distinct row, with the highest rank given to the highest value.
+
+Hint #2
+Keep going! You're on the right track! The first step is to select the required columns from the table. In this case, we need the 'guest_id' and 'age' columns from the 'airbnb_guests' table.
+
+Corresponding code block:
+
+SELECT
+    guest_id,
+    age
+FROM airbnb_guests;
+Hint #3
+Great job! Now, to rank the guests based on their ages, we use the RANK() function. The RANK() function is used with the OVER() clause which defines a window or set of rows within which the RANK() function operates. We order the records by age in descending order within the OVER() clause.
+
+Entire code:
+
+SELECT
+    guest_id,
+    RANK() OVER (ORDER BY age DESC) AS `rank`
+FROM airbnb_guests;
+"
+
+airbnb_guests
+Preview
+guest_id:
+int
+nationality:
+varchar
+gender:
+varchar
+age:
+int
+"""
+
+# SOLTUION:
+select 
+guest_id,
+rank() over (order by age desc) as 'rank'
+from airbnb_guests;
