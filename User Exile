@@ -1,0 +1,44 @@
+/*
+User Exile
+
+Meta/Facebook
+Easy
+ID 10091
+19
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find the number of relationships that user  with id == 1 is not part of.
+
+Table: facebook_friends
+Hints
+Expected Output
+Hint #1
+To find the number of relationships that user with id == 1 is not part of, we can use the SUM() function along with a CASE statement.
+
+Hint #2
+Keep going! Now let's break down the code snippet. The CASE statement checks if both user1 and user2 are not equal to 1. If this condition is true, it returns 1, otherwise it returns 0. The SUM() function then calculates the total sum of these values, giving us the number of relationships that user with id == 1 is not part of.
+
+Code snippet:
+
+SELECT
+  sum(CASE WHEN user1 <> 1 AND user2 <> 1 THEN 1 ELSE 0 END) AS user1_not_in_relationship
+FROM facebook_friends;
+Hint #3
+Well done! You're almost there. The code snippet above will give you the desired result. It calculates the sum of relationships where both user1 and user2 are not equal to 1, and assigns it to the alias "user1_not_in_relationship". This will give you the number of relationships that user with id == 1 is not part of.
+
+facebook_friends
+Preview
+user1:
+int
+user2:
+int
+*/
+
+-- SOLTUION:
+select SUM(CASE
+WHEN user1 <> 1 and user2 <> 1 then 1 else 0 end) as user1_not_in_relationship
+from facebook_friends;
