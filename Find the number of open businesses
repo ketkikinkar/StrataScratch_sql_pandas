@@ -1,0 +1,63 @@
+/*
+Find the number of open businesses
+Yelp
+Easy
+ID 10051
+9
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Find the number of open businesses.
+
+Table: yelp_business
+Hints
+Expected Output
+Hint #1
+To find the number of open businesses, we need to use the SELECT statement along with the COUNT function.
+
+Hint #2
+Keep going! Now, let's write the SQL query to select the count of open businesses from the "yelp_business" table. Use the WHERE clause to filter for businesses that are open (is_open = 1).
+
+SELECT 
+    count(is_open) AS business_open
+FROM yelp_business
+WHERE 
+    is_open = 1;
+Show Hint #3
+yelp_business
+Preview
+business_id:
+varchar
+name:
+varchar
+neighborhood:
+varchar
+address:
+varchar
+city:
+varchar
+state:
+varchar
+postal_code:
+varchar
+latitude:
+float
+longitude:
+float
+stars:
+float
+review_count:
+int
+is_open:
+int
+categories:
+varchar
+*/
+
+-- SOLTUION:
+
+select count(is_open) 
+from yelp_business
+where is_open =1;
