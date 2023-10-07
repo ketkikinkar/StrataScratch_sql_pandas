@@ -1,0 +1,53 @@
+/*
+Find the average number of stars for each state
+Yelp
+Easy
+ID 10052
+11
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Find the average number of stars for each state.
+Output the state name along with the corresponding average number of stars.
+
+Table: yelp_business
+Hints
+Expected Output
+yelp_business
+Preview
+business_id:
+varchar
+name:
+varchar
+neighborhood:
+varchar
+address:
+varchar
+city:
+varchar
+state:
+varchar
+postal_code:
+varchar
+latitude:
+float
+longitude:
+float
+stars:
+float
+review_count:
+int
+is_open:
+int
+categories:
+varchar
+*/
+
+-- SOLTUIONS:
+
+select state, avg(stars)
+from yelp_business
+group by state
+order by state;
