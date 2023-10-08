@@ -1,0 +1,72 @@
+/*
+Wine varieties tasted by 'Roger Voss'
+Wine Magazine
+Easy
+ID 10024
+12
+
+Data Scientist
+BI Analyst
+Data Analyst
+Find wine varieties tasted by 'Roger Voss' and with a value in the 'region_1' column of the dataset. Output unique variety names only.
+
+Table: winemag_p2
+Hints
+Expected Output
+Hint #1
+To find the wine varieties tasted by 'Roger Voss' and with a value in the 'region_1' column, we need to use the SELECT DISTINCT statement in SQL.
+
+Hint #2
+Keep going! Now, let's write the SQL query to select the distinct variety names from the 'winemag_p2' table where the taster_name is 'Roger Voss' and the region_1 column is not null.
+
+SELECT DISTINCT variety 
+FROM winemag_p2 
+WHERE taster_name = 'Roger Voss' 
+AND region_1 IS NOT NULL;
+Hint #3
+Well done! Here is the entire code snippet:
+
+SELECT DISTINCT variety 
+FROM winemag_p2 
+WHERE taster_name = 'Roger Voss' 
+AND region_1 IS NOT NULL;
+This query will output the unique variety names of wines tasted by 'Roger Voss' and with a value in the 'region_1' column.
+
+winemag_p2
+Preview
+id:
+int
+country:
+varchar
+description:
+varchar
+designation:
+varchar
+points:
+int
+price:
+float
+province:
+varchar
+region_1:
+varchar
+region_2:
+varchar
+taster_name:
+varchar
+taster_twitter_handle:
+varchar
+title:
+varchar
+variety:
+varchar
+winery:
+varchar
+*/
+
+-- SOLUTION:
+
+select distinct variety
+from winemag_p2
+where taster_name = 'Roger Voss'
+and region_1 is not null;
