@@ -1,0 +1,64 @@
+/*
+Find the average distance traveled in each hour
+
+Lyft
+Easy
+ID 10006
+9
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Find the average distance traveled in each hour.
+Output the hour along with the corresponding average traveled distance.
+Sort records by the hour in ascending order.
+
+Table: lyft_rides
+Hints
+Expected Output
+Hint #1
+To find the average distance traveled in each hour, we need to group the data by hour and calculate the average of the travel distance. We also need to sort the records by the hour in ascending order.
+
+Hint #2
+To start, we can use the SELECT statement to select the hour and calculate the average distance traveled using the AVG function. We can also use the AS keyword to give the calculated average a meaningful name, like "average_distance_traveled". Don't forget to include the FROM clause to specify the table "lyft_rides".
+
+SELECT
+    hour,
+    AVG(travel_distance) AS average_distance_traveled
+FROM
+    lyft_rides
+Hint #3
+Next, we need to group the records by hour using the GROUP BY clause. This will ensure that the average distance traveled is calculated for each hour separately. Finally, we can use the ORDER BY clause to sort the records by the hour in ascending order.
+
+SELECT
+    hour,
+    AVG(travel_distance) AS average_distance_traveled
+FROM
+    lyft_rides
+GROUP BY
+    hour
+ORDER BY
+    hour;
+Well done! You have successfully written the code to find the average distance traveled in each hour and sorted the records by the hour in ascending order. Keep up the good work!
+
+lyft_rides
+Preview
+index:
+int
+weather:
+varchar
+hour:
+int
+travel_distance:
+float
+gasoline_cost:
+float
+*/
+
+-- SOLTUION:
+
+select hour, avg(travel_distance)
+from lyft_rides
+group by hour
+order by hour asc;
