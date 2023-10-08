@@ -1,0 +1,61 @@
+/*
+Average Cost Of Each Request
+
+Uber
+Easy
+ID 10007
+13
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Find the average cost of each request status.
+Request status can be either 'success' or 'fail'.
+Output the request status along with the average cost.
+
+Table: uber_ride_requests
+Hints
+Expected Output
+Hint #1
+To find the average cost of each request status, we need to use the SELECT statement along with the AVG function. We also need to group the results by the request status column.
+
+Hint #2
+Keep going! Now let's write the SQL query to select the request status and average cost from the uber_ride_requests table. Don't forget to include the GROUP BY clause to group the results by request status.
+
+SELECT
+  request_status,
+  AVG(monetary_cost) AS average_cost
+FROM
+  uber_ride_requests
+GROUP BY
+  request_status;
+Hint #3
+Well done! You're making progress! Here is the entire code snippet that will give you the average cost of each request status:
+
+SELECT
+  request_status,
+  AVG(monetary_cost) AS average_cost
+FROM
+  uber_ride_requests
+GROUP BY
+  request_status;
+uber_ride_requests
+Preview
+request_id:
+int
+request_status:
+varchar
+distance_to_travel:
+float
+monetary_cost:
+float
+driver_to_client_distance:
+float
+*/
+
+-- SOLTUION:
+select request_status, avg(monetary_cost) 
+from uber_ride_requests
+where request_status =  'success' or request_status = 'fail'
+group by request_status;
