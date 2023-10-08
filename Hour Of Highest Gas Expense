@@ -1,0 +1,56 @@
+/*
+Hour Of Highest Gas Expense
+
+Lyft
+Easy
+ID 10005
+12
+
+Data Engineer
+BI Analyst
+Data Analyst
+Find the hour with the highest gasoline cost. Assume there's only 1 hour with the highest gas cost.
+
+Table: lyft_rides
+Hints
+Expected Output
+Hint #1
+To find the hour with the highest gasoline cost in the "lyft_rides" table, we need to use the SELECT statement to retrieve the "hour" column. We also need to order the results by the "gasoline_cost" column in descending order. Finally, we can use the LIMIT clause to only retrieve the first row, as we assume there is only one hour with the highest gas cost.
+
+Hint #2
+Keep going! Now let's write the SQL query to retrieve the hour with the highest gasoline cost. We can use the following code:
+
+SELECT hour
+FROM lyft_rides
+ORDER BY gasoline_cost DESC
+This query selects the "hour" column from the "lyft_rides" table and orders the results by the "gasoline_cost" column in descending order.
+
+Hint #3
+Well done! Now, to limit the results to only the hour with the highest gasoline cost, we can add the LIMIT 1 clause at the end of our query. Here's the complete code:
+
+SELECT hour
+FROM lyft_rides
+ORDER BY gasoline_cost DESC
+LIMIT 1
+This query will return the hour with the highest gasoline cost from the "lyft_rides" table.
+
+lyft_rides
+Preview
+index:
+int
+weather:
+varchar
+hour:
+int
+travel_distance:
+float
+gasoline_cost:
+float
+*/
+
+-- SOLTUION:
+
+select hour
+from lyft_rides
+order by gasoline_cost desc
+limit 1;
