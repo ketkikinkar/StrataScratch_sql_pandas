@@ -1,0 +1,58 @@
+/*
+Find all wine varieties which can be considered cheap based on the price
+Wine Magazine
+Easy
+ID 10022
+10
+
+Data Scientist
+BI Analyst
+Data Analyst
+Find all wine varieties which can be considered cheap based on the price.
+A variety is considered cheap if the price of a bottle lies between 5 to 20 USD.
+Output unique variety names only.
+
+Table: winemag_p1
+Hints
+Expected Output
+Hint #1
+To find all wine varieties that can be considered cheap based on the price, we need to use the SELECT DISTINCT statement to retrieve unique variety names from the winemag_p1 table. We also need to specify the condition that the price of a bottle should be between 5 and 20 USD.
+
+Hint #2
+Keep going! Now let's write the SQL query to retrieve the unique variety names that meet the price condition.
+
+SELECT DISTINCT variety 
+FROM winemag_p1 
+WHERE price BETWEEN 5 AND 20;
+Show Hint #3
+winemag_p1
+Preview
+id:
+int
+country:
+varchar
+description:
+varchar
+designation:
+varchar
+points:
+int
+price:
+float
+province:
+varchar
+region_1:
+varchar
+region_2:
+varchar
+variety:
+varchar
+winery:
+varchar
+*/
+
+-- SOLTUION:
+
+select DISTINCT variety
+from winemag_p1
+where price between 5 and 20;
