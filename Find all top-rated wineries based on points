@@ -1,0 +1,59 @@
+/*
+Find all top-rated wineries based on points
+Wine Magazine
+Easy
+ID 10021
+12
+
+Data Scientist
+BI Analyst
+Data Analyst
+Find all top-rated wineries based on points.
+Consider a top-rated winery has been awarded points more or equal than 95.
+
+Table: winemag_p1
+Hints
+Expected Output
+Hint #1
+To find all top-rated wineries based on points, we need to select the distinct wineries from the "winemag_p1" table where the points are greater than or equal to 95.
+
+Hint #2
+Keep going! Now let's write the SQL query to select the distinct wineries from the "winemag_p1" table where the points are greater than or equal to 95.
+
+SELECT DISTINCT winery
+FROM winemag_p1
+WHERE points >= 95;
+Hint #3
+Well done! The above SQL query will give us the desired result. It selects the distinct wineries from the "winemag_p1" table where the points are greater than or equal to 95.
+
+winemag_p1
+Preview
+id:
+int
+country:
+varchar
+description:
+varchar
+designation:
+varchar
+points:
+int
+price:
+float
+province:
+varchar
+region_1:
+varchar
+region_2:
+varchar
+variety:
+varchar
+winery:
+varchar
+*/
+
+--SOLTUION:
+
+select DISTINCT winery
+from winemag_p1
+where points>=95;
