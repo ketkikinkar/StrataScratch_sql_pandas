@@ -1,0 +1,64 @@
+/*
+Find the number of US-based wineries that have expensive wines (price >= 200)
+Wine Magazine
+Easy
+ID 10027
+16
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+Find the number of US-based wineries that have expensive wines.
+A wine is considered to be expensive if its price is $200 or more.
+
+Table: winemag_p1
+Hints
+Expected Output
+Hint #1
+To find the number of US-based wineries that have expensive wines, we need to use the SELECT statement with the COUNT and DISTINCT functions.
+
+Hint #2
+Keep going! Now let's add the necessary conditions to the WHERE clause. We want to filter for wines from the country 'US' and with a price greater than or equal to 200.
+
+SELECT
+    COUNT(DISTINCT winery) AS n_wineries
+FROM
+    winemag_p1
+WHERE
+    country = 'US' AND 
+    price >= 200;
+Hint #3
+Well done! You have completed the query. This will give you the number of US-based wineries that have expensive wines.
+
+winemag_p1
+Preview
+id:
+int
+country:
+varchar
+description:
+varchar
+designation:
+varchar
+points:
+int
+price:
+float
+province:
+varchar
+region_1:
+varchar
+region_2:
+varchar
+variety:
+varchar
+winery:
+varchar
+*/
+
+-- SOLTUION:
+
+select count(distinct winery)
+from winemag_p1
+where country = 'US' and price >= 200;
