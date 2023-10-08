@@ -1,0 +1,82 @@
+/*
+Find the review count for one-star businesses from yelp
+Yelp
+Easy
+ID 10050
+11
+
+Data Scientist
+BI Analyst
+Data Analyst
+Find the review count for one-star businesses from yelp.
+Output the name along with the corresponding review count.
+
+Table: yelp_business
+Hints
+Expected Output
+Hint #1
+To find the review count for one-star businesses from Yelp, we need to use the SELECT statement to specify the columns we want to retrieve from the "yelp_business" table. We also need to use the WHERE clause to filter the results based on the "stars" column being equal to 1. Finally, we need to use the GROUP BY clause to group the results by the "name" and "review_count" columns.
+
+Hint #2
+Keep going! Now let's write the code for the first part of the solution. We can start by writing the SELECT statement and specifying the columns we want to retrieve: "name" and "review_count". Remember to include a comma between the column names.
+
+SELECT 
+    name, 
+    review_count
+Next, we need to specify the table we are querying from, which is "yelp_business".
+
+FROM yelp_business
+Now, let's add the WHERE clause to filter the results based on the "stars" column being equal to 1.
+
+WHERE stars = 1
+Hint #3
+Well done! Now let's complete the solution. We just need to add the GROUP BY clause to group the results by the "name" and "review_count" columns.
+
+GROUP BY 
+    name, 
+    review_count
+Putting it all together, here is the entire code:
+
+SELECT 
+    name, 
+    review_count
+FROM yelp_business
+WHERE stars = 1
+GROUP BY 
+    name, 
+    review_count
+yelp_business
+Preview
+business_id:
+varchar
+name:
+varchar
+neighborhood:
+varchar
+address:
+varchar
+city:
+varchar
+state:
+varchar
+postal_code:
+varchar
+latitude:
+float
+longitude:
+float
+stars:
+float
+review_count:
+int
+is_open:
+int
+categories:
+varchar
+*/
+
+-- SOLTUION:
+select name, review_count
+from yelp_business
+where stars = 1
+group by name,review_count;
