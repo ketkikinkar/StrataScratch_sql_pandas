@@ -1,0 +1,61 @@
+/*
+Find prices for Spanish, Italian, and French wines
+
+Wine Magazine
+Easy
+ID 10020
+8
+
+Data Scientist
+BI Analyst
+Data Analyst
+Find prices for Spanish, Italian, and French wines. Output the price.
+
+Table: winemag_p1
+Hints
+Expected Output
+Hint #1
+To find the prices for Spanish, Italian, and French wines, we need to use the SELECT statement in SQL.
+
+Hint #2
+Keep going! Now, let's write the code to select the price from the "winemag_p1" table and filter the results based on the country.
+
+SELECT price
+FROM winemag_p1
+Hint #3
+Well done! Now, let's add the WHERE clause to filter the results based on the country.
+
+SELECT price
+FROM winemag_p1
+WHERE country IN ('Spain', 'Italy', 'France');
+winemag_p1
+Preview
+id:
+int
+country:
+varchar
+description:
+varchar
+designation:
+varchar
+points:
+int
+price:
+float
+province:
+varchar
+region_1:
+varchar
+region_2:
+varchar
+variety:
+varchar
+winery:
+varchar
+*/
+
+-- SOLTUION:
+
+select price
+from winemag_p1
+where country IN ('Spain', 'Italy', 'France');
