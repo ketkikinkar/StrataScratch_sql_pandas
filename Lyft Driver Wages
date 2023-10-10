@@ -1,0 +1,45 @@
+/*
+Lyft Driver Wages
+Lyft
+Easy
+ID 10003
+60
+
+Data Scientist
+BI Analyst
+Data Analyst
+Find all Lyft drivers who earn either equal to or less than 30k USD or equal to or more than 70k USD.
+Output all details related to retrieved records.
+
+Table: lyft_drivers
+Hints
+Expected Output
+Hint #1
+To solve this problem, we need to retrieve all the details of Lyft drivers who earn either equal to or less than 30k USD or equal to or more than 70k USD.
+
+Hint #2
+To retrieve the desired records, we can use the SELECT statement along with the WHERE clause. We need to specify the condition for the yearly_salary column to be less than or equal to 30k USD or greater than or equal to 70k USD.
+
+SELECT *
+FROM lyft_drivers
+WHERE yearly_salary <= 30000 OR yearly_salary >= 70000;
+Hint #3
+Well done! You have successfully completed the query. The above code snippet will output all the details related to the retrieved records.
+
+lyft_drivers
+Preview
+index:
+int
+start_date:
+datetime
+end_date:
+datetime
+yearly_salary:
+int
+*/
+
+-- SOLTUION:
+
+select * 
+from lyft_drivers
+where yearly_salary < 30000 or yearly_salary>70000;
