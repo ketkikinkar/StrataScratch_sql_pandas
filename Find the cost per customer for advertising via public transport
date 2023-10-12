@@ -1,0 +1,37 @@
+/*
+Find the cost per customer for advertising via public transport
+
+Uber
+Easy
+ID 10001
+17
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find the cost per customer for each advertising channel and year combination . Include only channels that are advertised via public transport (advertising channel includes "bus" substring).
+The cost per customer is equal to the total spent money divided by the total number of acquired customers through that advertising channel. Output advertising channel and its cost per customer.
+
+Table: uber_advertising
+Hints
+Expected Output
+uber_advertising
+Preview
+year:
+int
+advertising_channel:
+varchar
+money_spent:
+int
+customers_acquired:
+int
+*/
+
+-- SOLTUION:
+
+select advertising_channel, year, sum(money_spent)/cast(sum(customers_acquired) as float)
+from uber_advertising
+where advertising_channel like '%bus%'
+group by 1,2;
