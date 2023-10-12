@@ -1,0 +1,33 @@
+/*
+Find the advertising channel where Uber spent more than 100k USD in 2019
+
+Uber
+Easy
+ID 10002
+14
+
+Data Scientist
+BI Analyst
+Data Analyst
+Find the advertising channel where Uber spent more than 100k USD in 2019.
+
+Table: uber_advertising
+Hints
+Expected Output
+uber_advertising
+Preview
+year:
+int
+advertising_channel:
+varchar
+money_spent:
+int
+customers_acquired:
+int
+*/
+
+-- SOLUTION:
+
+select advertising_channel
+from uber_advertising
+where money_spent> 100000 and year = 2019;
