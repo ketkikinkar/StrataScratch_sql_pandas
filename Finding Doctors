@@ -1,0 +1,58 @@
+/*
+Finding Doctors
+
+
+Interview Question Date: May 2023
+
+Google
+Easy
+ID 10356
+
+108
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find doctors with the last name of 'Johnson' in the employee list. The output should contain both their first and last names.
+
+Table: employee_list
+Hints
+Expected Output
+Hint #1
+The goal is to retrieve the first and last names of employees who are doctors with the last name 'Johnson' from a database table named 'employee_list'. This criteria is specified using a WHERE clause to filter the results of the SELECT statement.
+
+Hint #2
+Keep pushing forward! You will need to use the correct column names as specified in the database table to select only the desired fields. Start by writing a SELECT statement that specifies the columns 'first_name' and 'last_name', and then, narrow down your search with a WHERE clause that includes the conditions for 'last_name' and 'profession'. The code for this part is as follows:
+
+SELECT first_name, last_name
+FROM employee_list
+WHERE last_name = 'Johnson' AND profession = 'Doctor';
+Hint #3
+Great job! You've now specified what to select and the conditions to match. By executing the SQL query you've constructed, you should be able to obtain a list of employees who meet the conditions of having 'Johnson' as a last name and 'Doctor' as a profession. Here is the entire code that will provide you with the desired output:
+
+SELECT first_name, last_name
+FROM employee_list
+WHERE last_name = 'Johnson' AND profession = 'Doctor';
+employee_list
+Preview
+first_name:
+varchar
+last_name:
+varchar
+profession:
+varchar
+employee_id:
+int
+birthday:
+datetime
+birth_month:
+int
+
+*/
+
+-- SOLTUION:
+
+select first_name, last_name from employee_list
+where last_name = 'Johnson' AND profession = 'Doctor';
