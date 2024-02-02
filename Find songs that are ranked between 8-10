@@ -1,0 +1,43 @@
+/*
+Spotify
+Easy
+ID 9999
+
+17
+
+Data Engineer
+Data Scientist
+BI Analyst
+Data Analyst
+ML Engineer
+Find songs that are ranked between 8-10.
+Output the track name along with the corresponding position, ordered ascendingly.
+
+Table: spotify_worldwide_daily_song_ranking
+Hints
+Expected Output
+spotify_worldwide_daily_song_ranking
+Preview
+id:
+int
+position:
+int
+trackname:
+varchar
+artist:
+varchar
+streams:
+int
+url:
+varchar
+date:
+datetime
+region:
+varchar
+*/
+
+-- SOLTUION:
+select trackname, position
+from spotify_worldwide_daily_song_ranking
+where position between 8 and 10
+order by position asc;
